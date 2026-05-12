@@ -1,0 +1,152 @@
+/* ═══════════════════════════════════════════════
+   CRDF — contact.css
+   Depends on: base.css
+   Contains: contact grid, contact items, legal box,
+   partner-type pills, form card, form inputs,
+   success card, steps grid.
+   ═══════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════
+   CONTACT PAGE GRID (info + form side-by-side)
+══════════════════════════════════════════════ */
+.contact-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ══════════════════════════════════════════════
+   CONTACT INFO ITEMS (email, phone, location)
+══════════════════════════════════════════════ */
+.contact-items { display: flex; flex-direction: column; gap: 18px; margin-bottom: 36px; }
+.contact-item  { display: flex; gap: 14px; align-items: flex-start; }
+
+.contact-icon {
+  width: 42px; height: 42px; min-width: 42px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.contact-icon svg { width: 20px; height: 20px; stroke: #fff; }
+
+.contact-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+.contact-val { font-size: 15px; color: var(--navy); font-weight: 500; }
+
+/* ══════════════════════════════════════════════
+   LEGAL BOX
+══════════════════════════════════════════════ */
+.legal-box   { background: var(--navy); border-radius: 14px; padding: 24px 22px; }
+.legal-label {
+  font-size: 11px;
+  color: #94afc7;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 600;
+}
+.legal-text  { font-size: 13px; color: #94afc7; line-height: 1.8; }
+
+/* ══════════════════════════════════════════════
+   PARTNER-TYPE PILLS (We Work With)
+══════════════════════════════════════════════ */
+.partner-types { display: flex; flex-direction: column; gap: 10px; }
+.partner-type {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border-left: 3px solid transparent;
+}
+.pt-navy   { background: rgba(15,45,82,.06);   border-left-color: var(--navy); }
+.pt-green  { background: rgba(30,111,92,.06);  border-left-color: var(--green); }
+.pt-purple { background: rgba(122,79,199,.06); border-left-color: #7a4fc7; }
+.pt-icon   { font-size: 20px; }
+.pt-title  { font-size: 13px; font-weight: 700; color: var(--navy); }
+.pt-sub    { font-size: 12px; color: var(--muted); }
+
+/* ══════════════════════════════════════════════
+   CONTACT FORM CARD
+══════════════════════════════════════════════ */
+.form-card  { background: #fff; border-radius: 18px; padding: 40px 36px; box-shadow: 0 4px 36px rgba(0,0,0,.06); }
+.form-title { font-size: 22px; color: var(--navy); margin-bottom: 6px; }
+.form-sub   { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+
+.form-row   { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.5px solid #d8e4de;
+  border-radius: 10px;
+  font-size: 14px;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  transition: border .2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.form-input:focus { border-color: var(--green); }
+.form-select      { appearance: none; cursor: pointer; }
+.form-textarea    { resize: vertical; line-height: 1.6; }
+.form-note        { font-size: 12px; color: var(--muted); text-align: center; margin-top: 10px; }
+
+/* ══════════════════════════════════════════════
+   FORM SUCCESS STATE
+══════════════════════════════════════════════ */
+.success-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 56px 36px;
+  text-align: center;
+  box-shadow: 0 4px 36px rgba(0,0,0,.06);
+}
+.success-icon {
+  width: 60px; height: 60px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 28px;
+  margin: 0 auto 20px;
+}
+.success-title { font-size: 24px; color: var(--navy); margin-bottom: 10px; }
+.success-text  { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+
+/* ══════════════════════════════════════════════
+   NEXT-STEPS GRID
+══════════════════════════════════════════════ */
+.steps-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 18px; }
+.step-card  { background: var(--grey); border-radius: 14px; padding: 28px 18px; }
+.step-num   { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: rgba(30,111,92,.18); margin-bottom: 10px; }
+.step-title { font-size: 14px; color: var(--navy); font-weight: 700; margin-bottom: 7px; }
+.step-desc  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — contact specific
+══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr !important; }
+  .form-row     { grid-template-columns: 1fr !important; }
+}

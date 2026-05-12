@@ -1,0 +1,169 @@
+/* ═══════════════════════════════════════════════
+   CRDF — home.css
+   Depends on: base.css
+   Contains: hero section, stat strip, focus-area
+   cards, why-blocks, impact grid, CTA section,
+   scroll hint, chips.
+   ═══════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════
+   FULL-BLEED HERO (home only — 100vh dark)
+══════════════════════════════════════════════ */
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(150deg, var(--navy) 0%, #0d3d2e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 70px;
+}
+
+.hero-bg-svg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: .06;
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 900px;
+  padding: 0 24px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Frosted logo lockup */
+.hero-logo-box {
+  display: inline-flex;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 16px 28px;
+  border: 1px solid rgba(255,255,255,.15);
+  margin-bottom: 32px;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Platform badge */
+.hero-badge {
+  display: inline-block;
+  background: rgba(30,111,92,.35);
+  border: 1px solid var(--green);
+  padding: 6px 20px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+.hero-badge-text {
+  font-size: 12px;
+  color: #7dd3b9;
+  letter-spacing: .1em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Main headline */
+.hero-h1 {
+  font-size: clamp(30px, 5vw, 56px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+.hero-h1 em { font-style: italic; color: #7dd3b9; }
+
+/* Body copy */
+.hero-p {
+  font-size: clamp(15px, 2vw, 18px);
+  color: #a8c8d8;
+  line-height: 1.7;
+  max-width: 680px;
+  margin: 0 auto 14px;
+}
+.hero-tagline {
+  font-size: 14px;
+  color: #7dd3b9;
+  margin-bottom: 36px;
+  font-style: italic;
+}
+
+/* CTA row */
+.hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* Taxonomy chips */
+.hero-chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 40px; }
+.chip       { font-size: 12px; padding: 5px 14px; border-radius: 20px; font-weight: 600; }
+.chip-green  { background: rgba(30,111,92,.25);  color: #7dd3b9; border: 1px solid rgba(30,111,92,.4); }
+.chip-orange { background: rgba(232,130,26,.25); color: #f5a84a; border: 1px solid rgba(232,130,26,.4); }
+
+/* Scroll hint */
+.scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  opacity: .45;
+}
+.scroll-text { font-size: 10px; color: #fff; letter-spacing: .1em; text-transform: uppercase; }
+.scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, white, transparent); }
+
+/* ══════════════════════════════════════════════
+   STAT / FEATURE STRIP (below hero)
+══════════════════════════════════════════════ */
+.stat-item {
+  background: var(--grey);
+  border-radius: 16px;
+  padding: 24px 20px;
+  border: 1px solid #e4ebe7;
+}
+.stat-icon      { width: 40px; height: 40px; color: var(--green); margin-bottom: 10px; }
+.stat-icon svg  { width: 100%; height: 100%; }
+.stat-label     { font-weight: 600; font-size: 14px; color: var(--navy); margin-bottom: 4px; }
+.stat-sub       { font-size: 12px; color: var(--muted); }
+
+/* ══════════════════════════════════════════════
+   "WHY CRDF" BLOCKS (dark-navy section)
+══════════════════════════════════════════════ */
+.why-block { border-top: 3px solid var(--green); padding-top: 28px; }
+.why-icon  { width: 44px; height: 44px; color: #7dd3b9; margin-bottom: 16px; }
+.why-icon svg { width: 100%; height: 100%; }
+.why-h3    { font-size: 18px; color: #fff; margin-bottom: 12px; font-weight: 600; }
+.why-p     { font-size: 14px; color: #94afc7; line-height: 1.75; }
+
+/* ══════════════════════════════════════════════
+   IMPACT GRID ("Our Impact Vision & Outcomes")
+══════════════════════════════════════════════ */
+.impact-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 20px; }
+.impact-item { background: var(--grey); border-radius: 16px; padding: 28px 16px; text-align: center; }
+.impact-ico  { width: 40px; height: 40px; margin: 0 auto 12px; color: var(--green); }
+.impact-ico svg { width: 100%; height: 100%; }
+
+/* ══════════════════════════════════════════════
+   VISION / MISSION CARDS (also used on About)
+══════════════════════════════════════════════ */
+.vm-card         { border-radius: 20px; padding: 44px 36px; }
+.vm-card-navy    { background: var(--navy); color: #fff; }
+.vm-card-green   { background: var(--green); color: #fff; }
+.vm-label        { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 10px; }
+.vm-h3           { font-size: 21px; margin-bottom: 18px; line-height: 1.4; color: #fff; }
+.vm-p            { font-size: 14px; line-height: 1.8; }
+.vm-card-navy .vm-label { color: #94afc7; }
+.vm-card-navy .vm-p     { color: #94afc7; }
+.vm-card-green .vm-p    { color: rgba(255,255,255,.8); }
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — home specific
+══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .hero-btns { flex-direction: column; align-items: center; }
+  .vm-grid   { grid-template-columns: 1fr !important; gap: 16px !important; }
+}

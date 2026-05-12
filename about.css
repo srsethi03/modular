@@ -1,0 +1,86 @@
+/* ═══════════════════════════════════════════════
+   CRDF — about.css
+   Depends on: base.css
+   Contains: detail items (about sidebar facts),
+   vision/mission cards, founder card.
+   ═══════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════
+   DETAIL ITEMS (key facts sidebar)
+══════════════════════════════════════════════ */
+.detail-item {
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 12px;
+}
+.detail-label {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 4px;
+}
+.detail-val {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* ══════════════════════════════════════════════
+   VISION / MISSION CARDS
+══════════════════════════════════════════════ */
+.vm-card       { border-radius: 20px; padding: 44px 36px; }
+.vm-card-navy  { background: var(--navy); color: #fff; }
+.vm-card-green { background: var(--green); color: #fff; }
+.vm-label {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin-bottom: 10px;
+}
+.vm-h3 { font-size: 21px; margin-bottom: 18px; line-height: 1.4; color: #fff; }
+.vm-p  { font-size: 14px; line-height: 1.8; }
+.vm-card-navy .vm-label { color: #94afc7; }
+.vm-card-navy .vm-p    { color: #94afc7; }
+.vm-card-green .vm-p   { color: rgba(255,255,255,.8); }
+
+/* ══════════════════════════════════════════════
+   FOUNDER / QUOTE CARD
+══════════════════════════════════════════════ */
+.founder-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 44px;
+  position: relative;
+  box-shadow: 0 4px 40px rgba(0,0,0,.06);
+}
+.founder-quote {
+  font-size: 72px;
+  color: rgba(30,111,92,.12);
+  font-family: 'Playfair Display', serif;
+  line-height: .5;
+  position: absolute;
+  top: 28px;
+  left: 36px;
+}
+.founder-avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--green));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — about specific
+══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .founder-card { padding: 24px !important; }
+  .vm-grid      { grid-template-columns: 1fr !important; gap: 16px !important; }
+}

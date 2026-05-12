@@ -1,0 +1,65 @@
+/* ═══════════════════════════════════════════════
+   CRDF — work.css
+   Depends on: base.css
+   Contains: accordion (work pillars), hidden toggle.
+   ═══════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════
+   ACCORDION
+══════════════════════════════════════════════ */
+.accordion {
+  background: #fff;
+  border-bottom: 1px solid #e4ebe7;
+  overflow: hidden;
+}
+
+.accordion-header {
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.accordion-header:hover { background: rgba(30,111,92,.05); }
+
+.acc-num {
+  font-size: 44px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: rgba(15,45,82,.12);
+  min-width: 56px;
+  line-height: 1;
+}
+.acc-icon     { width: 40px; height: 40px; min-width: 40px; }
+.acc-icon svg { width: 100%; height: 100%; }
+.acc-title    { flex: 1; font-size: clamp(15px,2vw,19px); color: var(--navy); font-weight: 600; }
+
+.acc-arrow     { color: var(--green); transition: transform .3s; width: 22px; min-width: 22px; }
+.acc-arrow svg { width: 100%; height: 100%; }
+.acc-arrow.open { transform: rotate(90deg); }
+
+.accordion-body {
+  padding: 0 36px 36px 116px;
+  border-top: 1px solid #eef2ef;
+  animation: fadeUp .3s ease;
+}
+.accordion-body p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.85;
+  margin: 20px 0 24px;
+  max-width: 680px;
+}
+
+/* JS toggling helper */
+.accordion-body.hidden { display: none; }
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — work specific
+══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .accordion-body   { padding: 0 20px 28px 20px !important; }
+  .accordion-header { padding: 20px !important; }
+  .acc-num          { display: none; }
+}

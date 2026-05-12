@@ -1,0 +1,75 @@
+/* ═══════════════════════════════════════════════
+   CRDF — insights.css
+   Depends on: base.css, programmes.css (tab-bar)
+   Contains: insight cards, publication items,
+   media/news items.
+   ═══════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════
+   INSIGHT CARDS
+══════════════════════════════════════════════ */
+.insight-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(0,0,0,.05);
+  transition: all .3s;
+  cursor: pointer;
+}
+.insight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,.1);
+}
+.insight-bar       { height: 5px; }
+.insight-bar-green { background: var(--green); }
+.insight-bar-navy  { background: var(--navy); }
+.insight-inner     { padding: 24px; }
+
+/* ══════════════════════════════════════════════
+   PUBLICATION / NEWS ITEMS
+══════════════════════════════════════════════ */
+.pub-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+  margin-bottom: 14px;
+}
+.pub-icon     { width: 46px; height: 46px; min-width: 46px; }
+.pub-icon svg { width: 100%; height: 100%; }
+
+/* ══════════════════════════════════════════════
+   TAB BAR (re-declared here so insights.css is
+   self-contained when programmes.css isn't loaded)
+══════════════════════════════════════════════ */
+.tab-bar {
+  background: #fff;
+  border-bottom: 1px solid #e4ebe7;
+  position: sticky;
+  top: 70px;
+  z-index: 100;
+}
+.tab-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+}
+.tab-btn {
+  padding: 16px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  border-bottom: 3px solid transparent;
+  background: none;
+  border-radius: 0;
+  transition: all .2s;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tab-btn.active { color: var(--green); border-bottom: 3px solid var(--green); }

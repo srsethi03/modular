@@ -12,10 +12,8 @@
 </head>
 <body>
 
-  <!-- Navbar injected here -->
   <div id="navbar-slot"></div>
 
-  <!-- ── CRDF Programmes Page ── -->
 <section class="page-hero">
   <div class="hero-circle"></div>
   <div class="page-hero-inner">
@@ -30,7 +28,7 @@
 
     <div class="reveal" style="text-align:center;margin-bottom:48px">
       <div class="section-label">Programme Portfolio</div>
-      <h2 class="pf section-h2">Five Integrated Programme Areas</h2>
+      <h2 class="pf section-h2">Six Integrated Programme Areas</h2>
     </div>
 
     <!-- Programme 01 -->
@@ -263,6 +261,55 @@
       </div>
     </div>
 
+    <!-- Programme 06 — Carbon & Nature-Based Solutions -->
+    <div class="prog-card reveal">
+      <div class="prog-header" onclick="this.nextElementSibling.classList.toggle('hidden')" style="border-left-color:#0f2d52">
+        <div style="font-size:44px;font-family:'Playfair Display',serif;font-weight:700;color:rgba(15,45,82,.12);min-width:56px;line-height:1">06</div>
+        <div style="width:40px;height:40px;min-width:40px;color:#0f2d52">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+        </div>
+        <div style="flex:1">
+          <h3 class="pf" style="font-size:clamp(15px,2vw,19px);color:#0f2d52;font-weight:600">Carbon &amp; Nature-Based Solutions Programme</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
+            <span class="tag">NbS</span>
+            <span class="tag">Carbon Credits</span>
+            <span class="tag">Climate Mitigation</span>
+            <span class="tag">Net Zero</span>
+          </div>
+        </div>
+        <div style="color:#1e6f5c;width:22px;min-width:22px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </div>
+      <div class="hidden" style="padding:0 32px 32px 116px;border-top:1px solid #eef2ef;animation:fadeUp .3s ease">
+        <p style="font-size:15px;color:#5a6a7a;line-height:1.85;margin:20px 0 24px;max-width:680px">A focused initiative building carbon readiness and deploying nature-based solutions at scale to support corporate net-zero commitments and community-level climate mitigation.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+          <div>
+            <div style="font-size:11px;font-weight:700;color:#5a6a7a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px">Components</div>
+            <ul style="list-style:none;padding:0;font-size:14px;color:#1a1a1a;line-height:1.8">
+              <li>• Carbon readiness assessments and baseline studies</li>
+              <li>• Emission-reduction pathways and planning</li>
+              <li>• Nature-based climate interventions (NbS)</li>
+              <li>• Community carbon aggregation frameworks</li>
+              <li>• Voluntary carbon market linkage support</li>
+              <li>• MRV (Monitoring, Reporting &amp; Verification) systems</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:#5a6a7a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px">Outcomes</div>
+            <ul style="list-style:none;padding:0;font-size:14px;color:#1e6f5c;line-height:1.8">
+              <li>✓ Measurable emission reductions</li>
+              <li>✓ Alignment with corporate climate commitments</li>
+              <li>✓ Carbon-linked preparedness for communities</li>
+              <li>✓ Verified nature-based co-benefits</li>
+              <li>✓ Contribution to national NDC targets</li>
+            </ul>
+            <div style="margin-top:16px;font-size:12px;color:#5a6a7a"><strong>Geography:</strong> High-potential carbon landscapes across India.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -279,9 +326,7 @@
 
 <style>.prog-card > div.hidden { display: none; }</style>
 
-  <!-- Footer injected here -->
   <div id="footer-slot"></div>
-
   <script src="shared.js"></script>
 </body>
 </html>

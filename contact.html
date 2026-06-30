@@ -200,18 +200,47 @@
       const nb = document.getElementById('navbar');
       if (nb) nb.classList.add('scrolled');
     });
+// it is stariting here
+ async function submitForm() {
+  const name     = document.getElementById('fName').value.trim();
+  const org      = document.getElementById('fOrg').value.trim();
+  const email    = document.getElementById('fEmail').value.trim();
+  const phone    = document.getElementById('fPhone').value.trim();
+  const interest = document.getElementById('fInterest').value.trim();
+  const message  = document.getElementById('fMessage').value.trim();
 
-    function submitForm() {
-      const name    = document.getElementById('fName').value.trim();
-      const email   = document.getElementById('fEmail').value.trim();
-      const message = document.getElementById('fMessage').value.trim();
-      if (!name || !email || !message) {
-        alert('Please fill in all required fields (Name, Email, Message).');
-        return;
-      }
+  if (!name || !email || !message) {
+    alert('Please fill in all required fields (Name, Email, Message).');
+    return;
+  }
+
+  const btn = document.querySelector('#formCard .btn-primary');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  try {
+    const res = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, org, email, phone, interest, message }),
+    });
+    const data = await res.json();
+
+    if (data.success) {
       document.getElementById('formCard').style.display = 'none';
       document.getElementById('successCard').style.display = 'block';
+    } else {
+      alert(data.error || 'Something went wrong. Please try again.');
     }
+  } catch (err) {
+    alert('Network error. Please try again.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Send Message';
+  }
+}
+    //ending here
+    
 
     function resetForm() {
       ['fName','fOrg','fEmail','fPhone','fInterest','fMessage'].forEach(id => {

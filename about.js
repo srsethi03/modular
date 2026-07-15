@@ -59,12 +59,13 @@
   });
 
   // Deep-linking support: #governing-body, #vision-mission, #who-we-are, #why-we-exist
-  const hashMap = {
-    "#who-we-are": "tab-who",
-    "#why-we-exist": "tab-why",
-    "#vision-mission": "tab-vm",
-    "#governing-body": "tab-gov"
-  };
+ const hashMap = {
+  "#who-we-are": "tab-who",
+  "#why-we-exist": "tab-why",
+  "#vision-mission": "tab-vm",
+  "#governing-body": "tab-gov",
+  "#advisory-board": "tab-advisory"
+};
   const initialTabId = hashMap[window.location.hash] || null;
   const initialTab = initialTabId
     ? document.getElementById(initialTabId)

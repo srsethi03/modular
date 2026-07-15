@@ -2,7 +2,7 @@
    CRDF — about.css
    Depends on: base.css
    Contains: detail items (about sidebar facts),
-   vision/mission cards, founder card.
+   vision/mission cards, founder card, governing body.
    ═══════════════════════════════════════════════ */
 
 /* ══════════════════════════════════════════════
@@ -78,9 +78,118 @@
 }
 
 /* ══════════════════════════════════════════════
+   GOVERNING BODY
+══════════════════════════════════════════════ */
+.gov-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.gov-card {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  padding: 34px 12px;
+  border-bottom: 1px solid rgba(15,45,82,.08);
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 4px;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: govFadeUp .7s cubic-bezier(.2,.8,.2,1) forwards;
+  transition: box-shadow .35s ease, transform .35s ease;
+}
+.gov-card:hover {
+  box-shadow: 0 12px 32px rgba(15,45,82,.10);
+  transform: translateY(-4px);
+}
+.gov-card:last-child { margin-bottom: 0; }
+
+/* stagger entrance */
+.gov-card:nth-child(1) { animation-delay: .05s; }
+.gov-card:nth-child(2) { animation-delay: .18s; }
+.gov-card:nth-child(3) { animation-delay: .31s; }
+.gov-card:nth-child(4) { animation-delay: .44s; }
+.gov-card:nth-child(5) { animation-delay: .57s; }
+
+@keyframes govFadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.gov-photo-wrap { flex: 0 0 auto; padding: 6px 0 0 12px; }
+.gov-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid var(--green);
+  overflow: hidden;
+  background: linear-gradient(135deg, #eef1ee, #dfe6e1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: transform .5s cubic-bezier(.2,.8,.2,1), border-color .4s ease;
+}
+.gov-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gov-photo svg {
+  width: 46%;
+  height: 46%;
+  opacity: .55;
+}
+.gov-card:hover .gov-photo {
+  transform: scale(1.06);
+  border-color: var(--navy);
+}
+
+.gov-info { flex: 1; padding-top: 8px; }
+.gov-name {
+  font-size: 21px;
+  color: var(--green);
+  margin-bottom: 8px;
+  line-height: 1.4;
+  position: relative;
+  display: inline-block;
+}
+.gov-name::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--navy);
+  transition: width .4s ease;
+}
+.gov-card:hover .gov-name::after { width: 100%; }
+
+.gov-role {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-left: 6px;
+}
+.gov-bio {
+  font-size: 14.5px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .gov-card { animation: none; opacity: 1; transform: none; }
+}
+
+/* ══════════════════════════════════════════════
    RESPONSIVE — about specific
 ══════════════════════════════════════════════ */
 @media (max-width: 768px) {
   .founder-card { padding: 24px !important; }
   .vm-grid      { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .gov-card { flex-direction: column; gap: 18px; padding: 24px 16px; }
+  .gov-photo-wrap { padding: 0; align-self: center; }
 }

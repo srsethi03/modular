@@ -1,9 +1,116 @@
 /* ═══════════════════════════════════════════════
    CRDF — about.css
    Depends on: base.css
-   Contains: detail items (about sidebar facts),
+   Contains: tab navigation, detail items,
    vision/mission cards, founder card, governing body.
    ═══════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════
+   TABS — nav + panels
+══════════════════════════════════════════════ */
+.tabs-sub {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 520px;
+  margin: 10px auto 0;
+}
+
+.tabs-nav {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(15,45,82,.10);
+  margin-bottom: 40px;
+  padding-bottom: 0;
+}
+
+.tab-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 14px 22px;
+  border-radius: 10px 10px 0 0;
+  transition: color .3s ease, background .3s ease;
+  white-space: nowrap;
+}
+.tab-btn .tab-icon {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  opacity: .75;
+  transition: opacity .3s ease, transform .3s ease;
+}
+.tab-btn:hover {
+  color: var(--navy);
+  background: rgba(15,45,82,.04);
+}
+.tab-btn:hover .tab-icon { opacity: 1; }
+
+.tab-btn.is-active {
+  color: var(--green);
+}
+.tab-btn.is-active .tab-icon {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.tab-btn:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
+/* sliding underline indicator, positioned via JS */
+.tabs-indicator {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--green), var(--navy));
+  border-radius: 3px 3px 0 0;
+  transition: left .35s cubic-bezier(.2,.8,.2,1), width .35s cubic-bezier(.2,.8,.2,1);
+}
+
+.tabs-panels {
+  position: relative;
+  min-height: 340px;
+}
+
+.tab-panel {
+  animation: tabFadeIn .45s cubic-bezier(.2,.8,.2,1);
+}
+.tab-panel[hidden] { display: none; }
+
+@keyframes tabFadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab-panel { animation: none; }
+  .tabs-indicator { transition: none; }
+}
+
+@media (max-width: 768px) {
+  .tabs-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    margin-bottom: 28px;
+  }
+  .tab-btn { padding: 12px 16px; font-size: 14px; }
+}
 
 /* ══════════════════════════════════════════════
    DETAIL ITEMS (key facts sidebar)
@@ -95,9 +202,6 @@
   background: #fff;
   border-radius: 12px;
   margin-bottom: 4px;
-  opacity: 0;
-  transform: translateY(24px);
-  animation: govFadeUp .7s cubic-bezier(.2,.8,.2,1) forwards;
   transition: box-shadow .35s ease, transform .35s ease;
 }
 .gov-card:hover {
@@ -105,17 +209,6 @@
   transform: translateY(-4px);
 }
 .gov-card:last-child { margin-bottom: 0; }
-
-/* stagger entrance */
-.gov-card:nth-child(1) { animation-delay: .05s; }
-.gov-card:nth-child(2) { animation-delay: .18s; }
-.gov-card:nth-child(3) { animation-delay: .31s; }
-.gov-card:nth-child(4) { animation-delay: .44s; }
-.gov-card:nth-child(5) { animation-delay: .57s; }
-
-@keyframes govFadeUp {
-  to { opacity: 1; transform: translateY(0); }
-}
 
 .gov-photo-wrap { flex: 0 0 auto; padding: 6px 0 0 12px; }
 .gov-photo {
@@ -177,11 +270,6 @@
   font-size: 14.5px;
   line-height: 1.85;
   color: var(--muted);
-}
-
-/* respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .gov-card { animation: none; opacity: 1; transform: none; }
 }
 
 /* ══════════════════════════════════════════════
